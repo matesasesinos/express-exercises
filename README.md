@@ -32,3 +32,10 @@ Para clonar esta rama especifica:
 Los mensajes flash se usan para avisar "cosas" al usuario, errores de validación por ejemplo. En este ejemplo usamos 1 de error y 1 de success.
 Para clonar esta rama especifica:
 * git clone --branch flash https://github.com/matesasesinos/express-exercises.git
+
+## Express Validator
+Ejemplo de sanitización y validación básica con Express Validator.
+Lista de sanitizadores: https://github.com/validatorjs/validator.js#sanitizers
+Lista de validadores: https://github.com/validatorjs/validator.js#validators
+Para clonar esta rama especifica:
+* git clone --branch validator https://github.com/matesasesinos/express-exercises.git

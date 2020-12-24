@@ -12,7 +12,6 @@ module.exports = {
     if (category.length) {
       errors[category].forEach((error) => {
         if (error.msg) {
-          //console.log(error.msg + ' el error de msg')
           html += ` <div class="alert alert-${category}" role="alert">
                     ${error.msg}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -20,7 +19,6 @@ module.exports = {
                     </button>
                 </div>`;
         } else {
-          //console.log(error + ' el error comunacho')
           html += ` <div class="alert alert-${category}" role="alert">
                     ${error}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
