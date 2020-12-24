@@ -21,3 +21,9 @@ Una vez hecho esto con npm run dev corremos el nodemon y podemos ingresar en htt
 La rama hbs contiene la instalación de main junto con handlebars y bootstrap (de forma básica), también se agrego un helper a modo de ejemplo.
 Para clonar esta rama especifica:
 * git clone --branch hbs https://github.com/matesasesinos/express-exercises.git
+
+
+## Formularios Simples
+Ejemplo de un formulario simple con algunos controles y un response en json.
+Para clonar esta rama especifica:
+* git clone --branch forms https://github.com/matesasesinos/express-exercises.git
