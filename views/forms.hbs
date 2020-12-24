@@ -1,0 +1,71 @@
+<main class="container">
+    <div class="row text-center">
+        <div class="col-12">
+            <h3>Formularios Express (ejercicio básico)</h3>
+        </div>
+    </div>
+    <div class="row mt-5 mb-5" id="formulario-uno">
+        <div class="col-12">
+            <h4>Primer Formulario</h4>
+
+            <form action="/formulario-uno" class="row" method="POST">
+                <div class="form-group col-12 col-md-6">
+                    <label for="">Texto</label>
+                    <input type="text" name="text" placeholder="Agregar un texto" class="form-control">
+                    <p><small>No tiene validación del lado del cliente</small></p>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label for="">Email</label>
+                    <input type="email" name="email" placeholder="Agregar un email" class="form-control">
+                    <p><small>No tiene validación del lado del cliente, pero esta declarado como type="email"</small>
+                    </p>
+                </div>
+                <hr>
+                <div class="form-group col-12 col-md-6">
+                    <label for="">Número</label>
+                    <input type="number" name="number" placeholder="Agregar un número" class="form-control">
+                    <p><small>No tiene validación del lado del cliente, esta declarado como type="number"</small></p>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label for="">Fecha</label>
+                    <input type="date" name="date" placeholder="Selecciona una fecha" class="form-control">
+                    <p><small>No tiene validación del lado del cliente, esta declarado como type="date"</small></p>
+                </div>
+                <hr>
+                <div class="form-group col-12 col-md-6">
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" name="file" class="custom-file-input" id="inputGroupFile02">
+                            <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text">Upload</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" name="checkbox[]" type="checkbox" value="Checkbox 1">
+                            Option one is this and that—be sure to include why it's great
+                        </label>
+                    </div>
+                    <div class="form-check disabled">
+                        <label class="form-check-label">
+                            <input class="form-check-input" name="checkbox[]" type="checkbox" value="Checkbox 2">
+                            Option two is disabled
+                        </label>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group col-12">
+                    <label for="">Area de texto</label>
+                    <textarea name="textarea" class="form-control" rows="5"></textarea>
+                </div>
+                <div class="col-4 mx-auto text-center">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

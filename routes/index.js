@@ -8,6 +8,10 @@ const formsController = require('../controllers/formsController');
 module.exports = () => {
     router.get('/', homeController.homeController);
 
+    //formularios get
+    router.get('/formularios', formsController.formOne);
+    //formulario uno post
+    router.post('/formulario-uno', formsController.formOneEnviar);
 
     return router;
 }
