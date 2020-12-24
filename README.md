@@ -27,3 +27,8 @@ Para clonar esta rama especifica:
 Ejemplo de un formulario simple con algunos controles y un response en json.
 Para clonar esta rama especifica:
 * git clone --branch forms https://github.com/matesasesinos/express-exercises.git
+
+## Mensajes Flash
+Los mensajes flash se usan para avisar "cosas" al usuario, errores de validación por ejemplo. En este ejemplo usamos 1 de error y 1 de success.
+Para clonar esta rama especifica:
+* git clone --branch flash https://github.com/matesasesinos/express-exercises.git

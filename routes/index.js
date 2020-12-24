@@ -13,5 +13,11 @@ module.exports = () => {
     //formulario uno post
     router.post('/formulario-uno', formsController.formOneEnviar);
 
+    //formulario flahs get
+    router.get('/formularios-flash', formsController.formFlashGet);
+    //formulario flash post
+    router.post('/formularios-flash', formsController.formFlashPost);
+
+
     return router;
 }

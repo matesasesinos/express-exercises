@@ -1,0 +1,45 @@
+<main class="container">
+    <div class="row text-center">
+        <div class="col-12">
+            <h3>Mensajes Flash (ejercicio básico)</h3>
+            <p>Nota: los mensajes Flash se mueven por la aplicación por sesiones por lo que hay que tener instalado express-session y cookie-parser ademas de connect-flash.<br />
+            algunos ejemplos y mas info <a href="https://www.npmjs.com/package/connect-flash" target="_blank">https://www.npmjs.com/package/connect-flash</a></p>
+        </div>
+    </div>
+    {{> messages/messages}}
+    {{#if notes}}
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mx-auto">
+                <div class="alert alert-info text-center">
+                    {{notes}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    <div class="row mt-5 mb-5" id="formulario-uno">
+        <div class="col-12">
+            <h4>Primer Formulario</h4>
+            <form action="/formularios-flash" class="row" method="POST">
+                <div class="form-group col-12 col-md-6">
+                    <label for="">Texto</label>
+                    <input type="text" name="text" placeholder="Agregar un texto" class="form-control">
+                    <p><small>No tiene validación del lado del cliente</small></p>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label for="">Email</label>
+                    <input type="email" name="email" placeholder="Agregar un email" class="form-control">
+                    <p><small>No tiene validación del lado del cliente, pero esta declarado como type="email"</small>
+                    </p>
+                </div>
+                <div class="col-4 mx-auto text-center">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

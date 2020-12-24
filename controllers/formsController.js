@@ -1,3 +1,4 @@
+/* formulario simple */
 exports.formOne = (req, res) => {
   res.render("forms", {
     pageTitle: "Formularios en Express",
@@ -18,3 +19,36 @@ exports.formOneEnviar = (req, res) => {
     },
   });
 };
+/* flash */
+exports.formFlashGet = (req,res) => {
+  res.render('flash', {
+    pageTitle: 'Mensajes flash'
+  })
+}
+exports.formFlashPost = (req,res) => {
+  const { text, email } = req.body;
+  if(!text) {
+    req.flash('danger','El campo de TEXTO no tiene nada');
+    res.render('flash', {
+      pageTitle: 'Mensajes flash',
+      notes: 'Esta no es una validación',
+      messages: req.flash()
+    })
+    return;
+  }
+  if(!email)  {
+    req.flash('danger', 'El campo de EMAIL no tiene nada');
+    res.render('flash', {
+      pageTitle: 'Mensajes flash',
+      notes: 'Esta no es una validación',
+      messages: req.flash()
+    })
+    return;
+  }
+  req.flash('success','Una alerta de OK');
+  res.render('flash', {
+    pageTitle: 'Mensajes flash',
+    notes: 'Esta no es una validación',
+    messages: req.flash()
+  })
+}
