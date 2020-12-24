@@ -16,3 +16,6 @@ En cualquier lugar de tu PC / Mac correr:
 * npm install
 
 Una vez hecho esto con npm run dev corremos el nodemon y podemos ingresar en http://localhost:5000 (el número de puerto corresponde al puerto puesto en .env)
+
+## Handlebars
+La rama hbs contiene la instalación de main junto con handlebars y bootstrap (de forma básica), también se agrego un helper a modo de ejemplo.
