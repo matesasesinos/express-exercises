@@ -4,6 +4,7 @@ const { body, validationResult } = require("express-validator"); //se requiere p
 exports.formOne = (req, res) => {
   res.render("forms", {
     pageTitle: "Formularios en Express",
+    forms: true
   });
 };
 exports.formOneEnviar = (req, res) => {
@@ -24,7 +25,8 @@ exports.formOneEnviar = (req, res) => {
 /* flash */
 exports.formFlashGet = (req,res) => {
   res.render('flash', {
-    pageTitle: 'Mensajes flash'
+    pageTitle: 'Mensajes flash',
+    flash: true
   })
 }
 exports.formFlashPost = (req,res) => {
@@ -58,6 +60,7 @@ exports.formFlashPost = (req,res) => {
 exports.formValidator = (req,res) => {
   res.render("validator", {
     pageTitle: "Express Validator",
+    validator: true
   });
 }
 

@@ -6,41 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{#if pageTitle}} {{pageTitle}} | {{/if}} {{#setPageTitle}}{{/setPageTitle}}</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">{{#setPageTitle}}{{/setPageTitle}}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/formularios">Formularios</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/formularios-flash">Mensajes Flash</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/formularios-validator">Express Validator</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="container mt-5">
-    <div class="row text-center">
-      <div class="col-12">
-        <h1>Ejercicios en Express</h1>
-      </div>
-    </div>
-  </div>
+<body {{#if bodyClass}} class="{{bodyClass}}" {{/if}}>
+  {{> navigation/navigation}}
   {{{body}}}
   <!-- js -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

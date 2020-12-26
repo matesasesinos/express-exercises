@@ -30,6 +30,7 @@ app.engine(
     handlebars: allowInsecurePrototypeAccess(Handlebars) //habilitar el uso de variables en vistas
   })
 );
+
 app.set("view engine", ".hbs"); //engine que usamos
 
 // statics files
@@ -59,10 +60,16 @@ app.use((req,res,next) => {
 
 //require all routes
 const router = require('./routes');
+const login = require('./routes/login');
+const forms = require('./routes/formularios');
+const panel = require('./routes/panel');
 
 
 //call all routes
 app.use('/', router());
+app.use('/', login());
+app.use('/', panel());
+app.use('/formularios', forms());
 
 
 //port configured in .evn file

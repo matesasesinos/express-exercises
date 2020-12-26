@@ -1,0 +1,36 @@
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        {{> navigation/panelNavigation}}
+        <div class="col-md-8 col-12">
+            <fieldset>
+                <form action="/actualizar-usuario" method="POST">
+                    <h3 class="pb-5">Actualizar mis datos</h3>
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" placeholder="Nombre Completo" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="phone" class="form-control" placeholder="Teléfono">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="email" placeholder="Email" class="form-control">
+                    </div>
+                    <h5 class="pb-2">Cambiar contraseña</h5>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="Contraseña" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="repeat-password" placeholder="Repita la contraseña"
+                            class="form-control">
+                    </div>
+                    <h5 class="pb-2">Agregar o quitar avatar</h5>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Subir una Imagen</label>
+                        <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                        <small id="fileHelp" class="form-text text-muted text-uppercase">tamaño máximo de 200px x 200px, formatos admitidos: jpg, jpeg, png</small>
+                    </div>
+                    <button class="btn btn-primary btn-block">Actualizar datos</button>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+</div>
