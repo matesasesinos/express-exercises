@@ -2,13 +2,6 @@ const mongoose = require("mongoose");
 const Configuration = mongoose.model("Configuration");
 const { body, validationResult } = require("express-validator");
 
-exports.panelHome = (req, res) => {
-  res.render("panel/panel", {
-    pageTitle: "Panel de Usuario",
-    bodyClass: "body-panel-home",
-    panel: true,
-  });
-};
 //conf
 exports.configurationEdit = async (req, res) => {
   const configuration = await Configuration.findOne({
@@ -99,9 +92,8 @@ exports.configurationPost = async (req, res, next) => {
     { new: true }
   );
   if (!updateConfig) {
-      console.log('no paso no');
-        req.flash("error", "Hubo en error al editar");
-        res.redirect("/configuracion");
+    req.flash("error", "Hubo en error al editar");
+    res.redirect("/configuracion");
   }
   req.flash("success", "Se edito correctamente la configuración.");
   res.redirect("/configuracion");

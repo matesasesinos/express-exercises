@@ -9,6 +9,8 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session"); //es necesario para menejar sesiones como por ejemplo los mensajes flash
 //mongo store
 const MongoStore = require("connect-mongo")(session);
+//passport
+const passport = require('./config/passport');
 
 //Handlebars
 const Handlebars = require('handlebars'); //se instala para que ande allow-prototype-access
@@ -63,9 +65,11 @@ app.use(flash());
 
 //middlewares
 const setConfiguration = require('./middlewares/configuration').setConfiguration;
+const setDemoUser = require('./middlewares/configuration').setDemoUser;
 //site configuration commons
 app.use(async (req,res,next) => {
   res.locals.configuration = await setConfiguration(1); //creamos la configuración inicial del sitio
+  res.demoUser = await setDemoUser(); 
   next();
 })
 //other middlewares
@@ -77,15 +81,17 @@ app.use((req,res,next) => {
 
 //require all routes
 const router = require('./routes');
-const login = require('./routes/login');
+const accounts = require('./routes/accounts');
 const forms = require('./routes/formularios');
-const panel = require('./routes/panel');
+const config = require('./routes/config');
+const users = require('./routes/users');
 
 
 //call all routes
 app.use('/', router());
-app.use('/', login());
-app.use('/', panel());
+app.use('/', accounts());
+app.use('/', config());
+app.use('/', users());
 app.use('/formularios', forms());
 
 

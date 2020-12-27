@@ -29,8 +29,37 @@ const userSchema = new mongoose.Schema({
     avatar: String,
     active:{
         type: Boolean,
-        default: 0
+        default: 1
     }
 });
+
+//password Hash
+userSchema.pre('save', async function(next) {
+    if(!this.isModified('password')) { //si esta hasheado el password no hacer nada
+        return next();
+    }
+    //hash
+    const hash = await bcrypt.hash(this.password, 12);
+    this.password = hash;
+    next();
+});
+
+userSchema.post('save', async function(error,doc,next) {
+    if(error.name === 'MongoError' && error.code === 11000){
+        const errorMsg = {
+            msg: 'El correo ya esta en uso'
+        }
+        next(errorMsg);
+    } else {
+        next(error);
+    }
+});
+
+//autenticar usuarios
+userSchema.methods = {
+    comparePassword: function(password) {
+        return bcrypt.compareSync(password,this.password);
+    }
+}
 
 module.exports = mongoose.model('User', userSchema);

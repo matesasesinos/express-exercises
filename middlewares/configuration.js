@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Configuration = mongoose.model('Configuration');
+const Users = mongoose.model('User');
 
 const configuration = {
     setConfiguration: async (siteID) => {
@@ -24,6 +25,24 @@ const configuration = {
             console.log('Configuración Inicial Creada Existosamente');
         } 
         return configuration;
+    },
+    setDemoUser: async () => {
+        const user = await Users.findOne({
+            email: 'demo@demo.com'
+        });
+        if(!user) {
+            await Users.create({
+                name: 'Demo Demo',
+                email: 'demo@demo.com',
+                phone: '+549123456789',
+                password: '123456',
+                token: 'token123',
+                created: Date.now(),
+                avatar: '',
+                active: 1
+            });
+            console.log('Usuario demo creado')
+        }
     }
 }
 
