@@ -23,6 +23,7 @@ const flash = require('connect-flash');
 
 //Express configuration
 const path = require("path"); //se usa para rutas absolutas
+
 app.use(express.json()); //respuestas en json
 app.use(express.urlencoded({extended:true})); //pasar request en formularios, se puede usar bodyParser pero este es nativo
 
