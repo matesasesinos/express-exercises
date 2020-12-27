@@ -8,31 +8,31 @@ passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
 }, async (email,password,done) => {
-    const usuario = await Users.findOne({ email });
+    const user = await Users.findOne({ email });
 
-    if(!usuario) {
+    if(!user) {
         return done(null,false,{
             message: 'El usuario no existe'
         });
     }
     
-    const verificarPass = usuario.comparePassword(password);
+    const verifyPass = user.comparePassword(password);
 
-    if(!verificarPass) {
+    if(!verifyPass) {
         return done(null,false,{
             message: 'Contraseña incorrecta'
         });
     }
 
-    return done(null,usuario);
+    return done(null,user);
 
 }));
 
-passport.serializeUser((usuario,done) => done(null,usuario._id));
+passport.serializeUser((user,done) => done(null,user._id));
 
 passport.deserializeUser(async (id,done) => {
-    const usuario = await Users.findById(id).exec();
-    return done(null,usuario);
+    const user = await Users.findById(id).exec();
+    return done(null,user);
 });
 
 module.exports = passport;

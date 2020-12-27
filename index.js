@@ -60,6 +60,10 @@ app.use(
   })
 );
 
+//passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 //alerts and flash messages
 app.use(flash());
 
@@ -75,6 +79,7 @@ app.use(async (req,res,next) => {
 //other middlewares
 app.use((req,res,next) => {
   res.locals.messages = req.flash();
+  res.locals.user = req.user;
   next();
 });
 
@@ -85,14 +90,22 @@ const accounts = require('./routes/accounts');
 const forms = require('./routes/formularios');
 const config = require('./routes/config');
 const users = require('./routes/users');
+const un = require('./routes/un');
 
 
 //call all routes
+//statics routes without login
 app.use('/', router());
-app.use('/', accounts());
-app.use('/', config());
-app.use('/', users());
 app.use('/formularios', forms());
+
+app.use('/', accounts());
+
+app.use('/site', config());
+
+app.use('/user', users());
+
+app.use('/', un());
+
 
 
 //port configured in .evn file

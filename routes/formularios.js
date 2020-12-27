@@ -17,7 +17,7 @@ module.exports = () => {
   //formulario validator
   router.get("/validator", formsController.formValidator);
   router.post(
-    "/formularios-validator",
+    "/validator",
     formsController.validacion,
     formsController.validatorEnviar
   );

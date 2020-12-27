@@ -10,14 +10,14 @@ module.exports = {
     if (category.length) {
       errors[category].forEach((error) => {
         if (error.msg) {
-          html += ` <div class="alert alert-${category}" role="alert">
+          html += ` <div class="alert alert-${category.includes( 'error' ) ? 'danger' : category}" role="alert">
                     ${error.msg}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                 </div>`;
         } else {
-          html += ` <div class="alert alert-${category}" role="alert">
+          html += ` <div class="alert alert-${category.includes( 'error' ) ? 'danger' : category}" role="alert">
                     ${error}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
@@ -27,5 +27,5 @@ module.exports = {
       });
     }
     return (alerts.fn().html = html);
-  },
+  }
 };
