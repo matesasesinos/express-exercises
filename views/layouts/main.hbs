@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{#if pageTitle}} {{pageTitle}} | {{/if}} {{#setPageTitle}}{{/setPageTitle}}</title>
+  <title>{{#if pageTitle}} {{pageTitle}} | {{/if}} {{configuration.title}}</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="/css/style.css">
@@ -12,7 +12,24 @@
 
 <body {{#if bodyClass}} class="{{bodyClass}}" {{/if}}>
   {{> navigation/navigation}}
+
   {{{body}}}
+
+  <!-- footer --->
+  <footer id="footer" class="footer pt-5">
+    <footer class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item"><i class="fas fa-phone-alt"></i> {{configuration.phone}}</li>
+            <li class="list-inline-item"><i class="fas fa-at"></i> {{configuration.email}}</li>
+            <li class="list-inline-item"><i class="fas fa-map-marker-alt"></i> {{configuration.address_1}}
+              {{configuration.address_2}}, {{configuration.city}} | {{configuration.country}}</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </footer>
   <!-- js -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

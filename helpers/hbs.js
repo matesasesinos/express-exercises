@@ -1,11 +1,8 @@
 const path = require('path');
 require('dotenv').config({ path: '.env' });
+
 module.exports = {
-  //envio un titulo de pagina en caso de que no haya uno definido en el controlador
-  setPageTitle: () => {
-    const pageTitle = process.env.PAGE_TITLE;
-    return pageTitle;
-  },
+  //alertas
   showAlerts: (errors = {}, alerts) => {
     //inyecta la alerta en el tmeplate
     const category = Object.keys(errors);

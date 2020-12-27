@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-12 mx-auto">
+            <form action="/configuracion" method="post">
+                <h3 class="pb-5 text-center">Configuración del Sitio</h3>
+                <div class="form-group">
+                    <label class="small text-uppercase">Titulo del Sitio *</label>
+                    <input type="text" name="title" class="form-control" value="{{configuration.title}}"
+                        placeholder="Titulo del Sitio" autofocus>
+                </div>
+                <div class="form-group">
+                    <label class="small text-uppercase">Email principal *</label>
+                    <input type="text" name="email" placeholder="Email Principal" value="{{configuration.email}}"
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="small text-uppercase">Teléfono principal *</label>
+                    <input type="text" name="phone" class="form-control" value="{{configuration.phone}}"
+                        placeholder="Teléfono">
+                </div>
+                <div class="form-group">
+                    <label class="small text-uppercase">Teléfono 2</label>
+                    <input type="text" name="phone_2" value="{{configuration.phone_2}}" class="form-control"
+                        placeholder="Teléfono 2">
+                </div>
+                <div class="form-group">
+                    <label class="small text-uppercase">Dirección Línea 1</label>
+                    <input type="text" name="address_1" placeholder="Dirección Línea 1" class="form-control"
+                        value="{{configuration.address_1}}">
+                </div>
+                <div class="form-group">
+                    <label class="small text-uppercase">Dirección Línea 2</label>
+                    <input type="text" name="address_2" placeholder="Dirección Línea 2" class="form-control"
+                        value="{{configuration.address_2}}">
+                </div>
+                <div class="form-group">
+                    <label class="small text-uppercase">Localidad / Ciudad</label>
+                    <input type="text" name="city" placeholder="Localidad / Ciudad" class="form-control"
+                        value="{{configuration.city}}">
+                </div>
+                <div class="form-group">
+                    <label class="small text-uppercase">país</label>
+                    <input type="text" name="country" placeholder="País" class="form-control"
+                        value="{{configuration.country}}">
+                </div>
+                <div class="form-group">
+                    <label class="small text-uppercase">Descripción</label>
+                    <textarea name="description" class="form-control" rows="5">{{configuration.description}}</textarea>
+                </div>
+                <div class="form-group">
+                     <label class="small text-uppercase">Agregar Logo</label>
+                    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                </div>
+                <div class="form-group">
+                     <label class="small text-uppercase">Footer Copy</label>
+                     <input type="text" name="copy" value="{{configuration.copy}}" class="form-control" placeholder="Footer Copy">
+                </div>
+                <div class="form-group mt-3 mb-3">
+                    <div class="form-check">
+                        <label class="form-check-label text-uppercase">
+                            <input class="form-check-input" type="checkbox"
+                                value="{{#if configuration.active}}1{{else}}0{{/if}}" {{#if
+                                configuration.active}}checked{{/if}}>
+                            <small class="small">Activar mantenimiento</small>
+                        </label>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-block">Editar configuración</button>
+            </form>
+        </div>
+    </div>
+</div>

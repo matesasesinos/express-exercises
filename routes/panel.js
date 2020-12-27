@@ -7,5 +7,7 @@ module.exports = () => {
 
     router.get('/panel', panelController.panelHome);
 
+    router.get('/configuracion', panelController.configurationEdit);
+
     return router;
 }

@@ -1,8 +1,14 @@
+//mongo
+const mongoose = require("mongoose");
+require("./config/db");
+
 //express
 const express = require('express');
 const app = express();
 const cookieParser = require("cookie-parser");
 const session = require("express-session"); //es necesario para menejar sesiones como por ejemplo los mensajes flash
+//mongo store
+const MongoStore = require("connect-mongo")(session);
 
 //Handlebars
 const Handlebars = require('handlebars'); //se instala para que ande allow-prototype-access
@@ -44,14 +50,24 @@ app.use(
     secret: process.env.SECRET,
     key: process.env.KEY,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+    }),
   })
 );
 
 //alerts and flash messages
 app.use(flash());
 
-//middleware
+//middlewares
+const setConfiguration = require('./middlewares/configuration').setConfiguration;
+//site configuration commons
+app.use(async (req,res,next) => {
+  res.locals.configuration = await setConfiguration(1); //creamos la configuración inicial del sitio
+  next();
+})
+//other middlewares
 app.use((req,res,next) => {
   res.locals.messages = req.flash();
   next();
